@@ -19,9 +19,21 @@ function actualizarListaAmigos() {
 
     ul.innerHTML = '';
 
-    for(let i = 0; i<listaAmigos.length; i++){
-        ul.innerHTML += `<li>${listaAmigos[i]}</li>`;
+    for(let amigo = 0; amigo<listaAmigos.length; amigo++){
+        ul.innerHTML += `<li>${listaAmigos[amigo]}</li>`;
+    }  
+}
+
+function sortearAmigo(){
+    if(listaAmigos.length < 2){
+        alert('Se necesita registrar al menos 2 amigos para sortear');
+        return
     }
 
-    
+    let amigoSecreto = Math.floor(Math.random() * listaAmigos.length);
+
+    console.log('seleccionado', amigoSecreto);
+    const ulResultado = document.getElementById('resultado');
+
+    ulResultado.innerHTML = `<li>${listaAmigos[amigoSecreto]}</li>`;
 }
