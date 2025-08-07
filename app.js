@@ -9,5 +9,19 @@ function agregarAmigo(){
     }else{
         listaAmigos.push(nuevoAmigo.value);
         nuevoAmigo.value = "";
+        actualizarListaAmigos();
     }
+}
+
+//funcion para llenar lista de amigos cada que se agregue uno nuevo
+function actualizarListaAmigos() {
+    const ul = document.getElementById('listaAmigos');
+
+    ul.innerHTML = '';
+
+    for(let i = 0; i<listaAmigos.length; i++){
+        ul.innerHTML += `<li>${listaAmigos[i]}</li>`;
+    }
+
+    
 }
